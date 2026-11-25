@@ -1,0 +1,12 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Website portofolio personal",
+  "scripts": {
+    "dev": "echo Buka index.html dengan Live Server di VS Code"
+  },
+  "notes": {
+    "tailwind": "Saat ini menggunakan Tailwind CDN Play untuk development. Untuk production, migrasi ke Tailwind CLI: npm install -D tailwindcss, lalu npx tailwindcss init.",
+    "animation": "Vanilla CSS transitions/keyframes. Tidak menggunakan Framer Motion atau GSAP."
+  }
+}

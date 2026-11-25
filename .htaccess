@@ -1,0 +1,18 @@
+# ================================================================
+# Apache Configuration for Porto
+# Disable aggressive browser image caching in local development
+# ================================================================
+
+<IfModule mod_headers.c>
+  # Gambar (jpg, jpeg, png, gif, svg, webp) selalu divalidasi ke disk
+  <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # CSS dan JS selalu diperiksa pembaruannya
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portofolio personal Lailatul Fitriyah — Web Developer. Menampilkan proyek unggulan, keahlian teknologi, dan riwayat pendidikan." />
+
+  <title>Lailatul Fitriyah — Web Developer</title>
+
+  <!-- Favicon Tab Browser -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome 6 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN Play -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bg: 'var(--bg)',
+            surface: 'var(--surface)',
+            'surface-alt': 'var(--surface-alt)',
+            accent: 'var(--accent)',
+            'accent-hover': 'var(--accent-hover)',
+            border: 'var(--border)',
+            'text-primary': 'var(--text)',
+            'text-muted': 'var(--muted)',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          maxWidth: {
+            content: '1100px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Futuristic Neon CSS -->
+  <link rel="stylesheet" href="src/css/custom.css?v=22" />
+</head>
+
+<body class="bg-bg text-text-primary font-sans">
+
+  <!-- Skip to main content for accessibility -->
+  <a href="#home" class="skip-link">Langsung ke konten</a>
+
+  <!-- ================================================================
+       NAVBAR (FLOATING PILL CAPSULE WITH NEON BORDER & GLASSMORPHISM)
+       ================================================================ -->
+  <div class="navbar-wrapper">
+    <header class="navbar-pill" role="banner">
+
+      <!-- LEFT: Coding Logo </> + Brand Name Lailatul Fitriyah -->
+      <a href="#home" class="nav-brand" aria-label="Lailatul Fitriyah - Beranda">
+        <span class="nav-brand-code">&lt;/&gt;</span>
+        <span class="nav-brand-text">Lailatul Fitriyah</span>
+      </a>
+
+      <!-- CENTER: Desktop Navigation Links (Home is First & Active) -->
+      <nav class="nav-links" aria-label="Navigasi Utama">
+        <a href="#home" class="nav-link active" data-nav-link data-i18n="nav.home">Beranda</a>
+        <a href="#about" class="nav-link" data-nav-link data-i18n="nav.about">Tentang</a>
+        <a href="#skills" class="nav-link" data-nav-link data-i18n="nav.skills">Keahlian</a>
+        <a href="#projects" class="nav-link" data-nav-link data-i18n="nav.projects">Proyek</a>
+        <a href="#education" class="nav-link" data-nav-link data-i18n="nav.education">Pendidikan</a>
+        <a href="#contact" class="nav-link" data-nav-link data-i18n="nav.contact">Kontak</a>
+      </nav>
+
+      <!-- RIGHT: Language Switcher ID/EN + Theme Mode Toggle + Mobile Menu Button -->
+      <div class="nav-controls">
+
+        <!-- Language Switcher [ ID ] [ EN ] -->
+        <div class="lang-boxes" role="group" aria-label="Pilih Bahasa / Language Selector">
+          <button type="button" class="lang-box active" data-lang-choice="id" aria-pressed="true"
+            title="Bahasa Indonesia">ID</button>
+          <button type="button" class="lang-box" data-lang-choice="en" aria-pressed="false" title="English">EN</button>
+        </div>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button type="button" class="theme-btn" data-theme-toggle aria-label="Ganti mode tema" title="Ganti Mode Tema">
+          <!-- Sun SVG (visible in dark mode) -->
+          <svg class="theme-icon-sun w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+            </path>
+          </svg>
+          <!-- Moon SVG (visible in light mode) -->
+          <svg class="theme-icon-moon w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menuBtn" class="menu-btn" aria-label="Buka menu navigasi" aria-expanded="false"
+          aria-controls="mobileNav">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+      </div>
+
+    </header>
+  </div>
+
+  <!-- Mobile Navigation Backdrop Overlay -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+  <!-- Mobile Dropdown Navigation Drawer -->
+  <nav id="mobileNav" class="mobile-nav" aria-label="Menu Mobile">
+    <div class="flex flex-col gap-2">
+      <a href="#home" class="nav-link active py-2.5 border-b border-border/40" data-nav-link
+        data-i18n="nav.home">Beranda</a>
+      <a href="#about" class="nav-link py-2.5 border-b border-border/40" data-nav-link data-i18n="nav.about">Tentang</a>
+      <a href="#skills" class="nav-link py-2.5 border-b border-border/40" data-nav-link
+        data-i18n="nav.skills">Keahlian</a>
+      <a href="#projects" class="nav-link py-2.5 border-b border-border/40" data-nav-link
+        data-i18n="nav.projects">Proyek</a>
+      <a href="#education" class="nav-link py-2.5 border-b border-border/40" data-nav-link
+        data-i18n="nav.education">Pendidikan</a>
+      <a href="#contact" class="nav-link py-2.5" data-nav-link data-i18n="nav.contact">Kontak</a>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO SECTION (HOME) — TWO COLUMNS, NEON PURPLE GLOW, SEAMLESS CUTOUT
+         ============================================================ -->
+    <section id="home" class="hero-section px-6" aria-labelledby="hero-name-heading">
+      <!-- Lingkaran gradasi ungu di pojok kiri atas -->
+      <div class="hero-top-left-glow" aria-hidden="true"></div>
+
+      <!-- Ambient Radial Neon Orbs -->
+      <div class="hero-ambient-orb hero-orb-left" aria-hidden="true"></div>
+      <div class="hero-ambient-orb hero-orb-right" aria-hidden="true"></div>
+
+      <div class="max-w-content mx-auto w-full relative z-10">
+        <div class="hero-cols">
+
+          <!-- 1. Intro Column (Teks Perkenalan: Sapaan, Nama, Profesi Animasi, Garis Aksen, Bio & Explore CTA) -->
+          <div class="hero-intro-col reveal">
+            <!-- Eyebrow Greeting (HELLO, I'M / HALO, SAYA) -->
+            <p class="hero-greeting" data-i18n="hero.greeting">
+              HALO, SAYA
+            </p>
+
+            <!-- Big Name -->
+            <h1 id="hero-name-heading" class="hero-name" data-i18n="hero.name">
+              Lailatul Fitriyah
+            </h1>
+
+            <!-- Animated Typing Profession -->
+            <div class="hero-role-wrapper">
+              <span id="heroTypingText" class="hero-typing-text">Informatics Student &amp; Web Developer</span><span
+                class="hero-typing-cursor" aria-hidden="true">|</span>
+            </div>
+
+            <!-- Garis dekoratif neon ungu di bawah profesi -->
+            <div class="hero-accent-line" aria-hidden="true"></div>
+
+            <!-- Short Bio Description -->
+            <p class="hero-bio" data-i18n="hero.bio">
+              Saya tertarik dengan dunia teknologi, khususnya pengembangan website, aplikasi, dan desain UI/UX. Saya
+              senang belajar hal baru dan mengembangkan kemampuan di bidang teknologi.
+            </p>
+          </div>
+
+          <!-- 2. Profile Photo Column (Foto Profil Asli, Glow Ungu, Orbit Neon & Sparkles) -->
+          <div class="hero-photo-col reveal" style="transition-delay: 100ms">
+            <div class="hero-photo-showcase">
+              <!-- Efek Cahaya Ungu (Purple Glow) di Belakang Foto -->
+              <div class="hero-photo-ambient" aria-hidden="true"></div>
+
+              <!-- Efek Orbit Neon Ungu di Sekitar Foto -->
+              <div class="hero-orbit-ring orbit-ring-1" aria-hidden="true"></div>
+              <div class="hero-orbit-ring orbit-ring-2" aria-hidden="true"></div>
+
+              <!-- Garis Lengkung Neon Ungu -->
+              <div class="hero-neon-curve" aria-hidden="true"></div>
+
+              <!-- Ornamen Bintang Ungu (Purple Sparkles) -->
+              <!-- Sparkle kiri atas: besar, terlihat jelas seperti referensi -->
+              <div class="hero-deco-sparkle sparkle-top" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="#C4B5FD"
+                    fill-opacity="0.9" />
+                </svg>
+              </div>
+              <!-- Sparkle kiri bawah: kecil subtle -->
+              <div class="hero-deco-sparkle sparkle-left" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="#A855F7"
+                    fill-opacity="0.7" />
+                </svg>
+              </div>
+              <!-- Sparkle kanan tengah: medium, terlihat seperti referensi -->
+              <div class="hero-deco-sparkle sparkle-right" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" fill="#A855F7"
+                    fill-opacity="0.85" />
+                </svg>
+              </div>
+
+              <!-- Dot Matrix kanan bawah -->
+              <div class="hero-dot-matrix" aria-hidden="true"></div>
+              <!-- Dot Matrix kiri atas — seperti referensi -->
+              <div class="hero-dot-matrix-tl" aria-hidden="true"></div>
+
+              <!-- Foto Asli Tanpa Bingkai / Border, Menyatu Langsung Dengan Background Website -->
+              <!-- Mendukung format PNG, JPG, dan SVG secara fleksibel & otomatis -->
+              <div class="hero-photo-cutout">
+                <picture>
+                  <source srcset="assets/images/profile/profile.png" type="image/png" />
+                  <source srcset="assets/images/profile/profile.svg" type="image/svg+xml" />
+                  <source srcset="assets/images/profile/profile.jpg" type="image/jpeg" />
+                  <img id="heroProfileImg" src="assets/images/profile/profile.png"
+                    onerror="if(this.dataset.failed!=='svg'){if(this.src.includes('.png')){this.src='assets/images/profile/profile.jpg';}else if(this.src.includes('.jpg')){this.src='assets/images/profile/profile.svg';this.dataset.failed='svg';}}"
+                    alt="Foto Profil Lailatul Fitriyah" class="hero-cutout-img" width="340" height="440"
+                    loading="eager" />
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Actions Column (Tombol Download CV & Ikon Media Sosial / Kontak) -->
+          <div class="hero-actions-col reveal" style="transition-delay: 150ms">
+            <div class="hero-actions">
+              <!-- Download CV Button with Icon -->
+              <a href="assets/cv/CV-Lailatul-Fitriyah.pdf" download="CV-Lailatul-Fitriyah.pdf" class="btn-download-cv"
+                aria-label="Download CV Lailatul Fitriyah">
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+                <span data-i18n="hero.download_cv">Download CV</span>
+              </a>
+
+              <!-- Social Links (WhatsApp, Email, GitHub) -->
+              <div class="hero-social-links" role="group" aria-label="Media Sosial & Kontak">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6285707879960" target="_blank" rel="noopener noreferrer" class="hero-social-btn"
+                  aria-label="Chat WhatsApp" title="Chat WhatsApp: 085707879960">
+                  <i class="fa-brands fa-whatsapp text-emerald-400" aria-hidden="true"></i>
+                </a>
+                <!-- Email -->
+                <a href="mailto:lailatulfitriyahh026@gmail.com" class="hero-social-btn" aria-label="Kirim Email"
+                  title="Kirim Email: lailatulfitriyahh026@gmail.com">
+                  <i class="fa-regular fa-envelope text-indigo-400" aria-hidden="true"></i>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/Lailatulfitriyahh" target="_blank" rel="noopener noreferrer"
+                  class="hero-social-btn" aria-label="Profil GitHub" title="Kunjungi GitHub: Lailatulfitriyahh">
+                  <i class="fa-brands fa-github text-purple-300" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER (Garis Horizontal Bercahaya di Bagian Bawah Hero) -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 1 — ABOUT (DEDICATED PROFILE & BIO SECTION)
+         ============================================================ -->
+    <section id="about" class="about-section max-w-content mx-auto" aria-labelledby="about-heading">
+      <div class="section-heading-wrap reveal">
+        <h2 id="about-heading" class="section-title" data-i18n="about.title">
+          Tentang Saya
+        </h2>
+        <div class="section-title-line" aria-hidden="true"></div>
+        <p class="section-desc" data-i18n="about.desc">
+          Mengenal lebih dekat perjalanan saya di bidang web development, perancangan antarmuka, dan teknologi.
+        </p>
+      </div>
+
+      <!-- Single Centered Content Block (Max 850px) -->
+      <div class="about-content-wrap reveal">
+        <!-- Paragraf Deskripsi Ringkas (Rata Kanan-Kiri / Justify) -->
+        <div class="about-text-body">
+          <p class="text-text-primary text-base sm:text-lg leading-relaxed mb-4" data-i18n="about.bio_p1">
+            Halo, saya Lailatul Fitriyah, mahasiswa Program Studi Ilmu Komputer di Universitas PGRI Wiranegara dengan
+            ketertarikan mendalam pada pengembangan web, pemrograman, dan pembuatan aplikasi.
+          </p>
+          <p class="text-text-muted text-base leading-relaxed mb-6" data-i18n="about.bio_p2">
+            Saya senang mempelajari teknologi baru dan mengeksplorasi berbagai tools untuk mengembangkan ide menjadi
+            proyek yang bermanfaat. Melalui perkuliahan dan pengalaman mengerjakan proyek, saya terus mengasah kemampuan
+            teknis, kreativitas, serta pemecahan masalah.
+          </p>
+        </div>
+
+        <!-- Kartu Gabungan Informasi (Lokasi & Ketersediaan) -->
+        <div class="about-meta-card">
+          <!-- Sisi Kiri: Lokasi -->
+          <div class="about-meta-col about-meta-location">
+            <div class="about-meta-icon" aria-hidden="true">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="about-meta-info">
+              <span class="about-meta-label" data-i18n="about.location_label">Lokasi</span>
+              <p class="about-meta-val" data-i18n="about.location_address">
+                Dusun Karang Panas II, Desa Gerongan, Kecamatan Kraton, Kabupaten Pasuruan, Jawa Timur 67151, Indonesia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Divider Vertikal -->
+          <div class="about-meta-divider" aria-hidden="true"></div>
+
+          <!-- Sisi Kanan: Ketersediaan -->
+          <div class="about-meta-col about-meta-status">
+            <div class="about-meta-icon about-meta-icon--status" aria-hidden="true">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="about-meta-info">
+              <span class="about-meta-label" data-i18n="about.info_status_label">Ketersediaan</span>
+              <p class="about-meta-val about-meta-val--status" data-i18n="about.info_status_val">
+                Terbuka untuk Pekerjaan &amp; Proyek
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER (About -> Skills) -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 2 — SKILLS & TECHNOLOGIES (RESPONSIVE PYRAMID 6-5-4-3-2)
+         ============================================================ -->
+    <section id="skills" class="skills-section py-24 px-6 relative overflow-hidden" aria-labelledby="skills-heading">
+      <!-- Abstract Decorative Shapes (Purple Sparkles, Circles, Lines) -->
+      <div class="skills-deco-sparkle sparkle-top-left" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="skills-deco-sparkle sparkle-top-right" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="skills-deco-sparkle sparkle-bottom-right" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="skills-deco-circle circle-1" aria-hidden="true"></div>
+      <div class="skills-deco-circle circle-2" aria-hidden="true"></div>
+      <div class="skills-deco-line line-1" aria-hidden="true"></div>
+      <div class="skills-deco-line line-2" aria-hidden="true"></div>
+
+      <div class="max-w-content mx-auto relative z-10">
+        <div class="reveal mb-12 text-center">
+          <h2 id="skills-heading" class="skills-title text-3xl md:text-4xl font-bold" data-i18n="skills.title"
+            data-i18n-html="true">
+            <span class="skills-title-word">Keahlian</span> <span class="skills-title-gradient">Saya</span>
+          </h2>
+          <div class="skills-title-line" aria-hidden="true"></div>
+          <p class="skills-desc mt-4 max-w-xl mx-auto" data-i18n="skills.desc">
+            Kumpulan teknologi dan alat kerja yang saya pelajari dan gunakan dalam pengembangan web.
+          </p>
+        </div>
+
+        <!-- Responsive Pyramid Technology Skill Cards (6 - 5 - 4 - 3 - 3 - 2) -->
+        <div class="sk-pyramid reveal" aria-label="Daftar keahlian teknologi">
+
+          <!-- Tier 1: 6 cards -->
+          <div class="sk-tier">
+            <div class="sk-card">
+              <img src="skills/icons/python.svg" alt="Python" loading="lazy">
+              <span>Python</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/flutter.svg" alt="Flutter" loading="lazy">
+              <span>Flutter</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/dart.svg" alt="Dart" loading="lazy">
+              <span>Dart</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/html5.svg" alt="HTML5" loading="lazy">
+              <span>HTML5</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/css3.svg" alt="CSS3" loading="lazy">
+              <span>CSS3</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/php.svg" alt="PHP" loading="lazy">
+              <span>PHP</span>
+            </div>
+          </div>
+
+          <!-- Tier 2: 5 cards -->
+          <div class="sk-tier">
+            <div class="sk-card">
+              <img src="skills/icons/matlab.svg" alt="MATLAB" loading="lazy">
+              <span>MATLAB</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/mysql.svg" alt="MySQL" loading="lazy">
+              <span>MySQL</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/firebase.svg" alt="Firebase" loading="lazy">
+              <span>Firebase</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/android.svg" alt="Android" loading="lazy">
+              <span>Android</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/github.svg" alt="GitHub" loading="lazy">
+              <span>GitHub</span>
+            </div>
+          </div>
+
+          <!-- Tier 3: 4 cards -->
+          <div class="sk-tier">
+            <div class="sk-card">
+              <img src="skills/icons/laragon.svg" alt="Laragon" loading="lazy">
+              <span>Laragon</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/xampp.svg" alt="XAMPP" loading="lazy">
+              <span>XAMPP</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/figma.svg" alt="Figma" loading="lazy">
+              <span>Figma</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/canva.svg" alt="Canva" loading="lazy">
+              <span>Canva</span>
+            </div>
+          </div>
+
+          <!-- Tier 4: 3 cards -->
+          <div class="sk-tier">
+            <div class="sk-card">
+              <img src="skills/icons/excel.svg" alt="Excel" loading="lazy">
+              <span>Excel</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/word.svg" alt="Word" loading="lazy">
+              <span>Word</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/powerpoint.svg" alt="PowerPoint" loading="lazy">
+              <span>PowerPoint</span>
+            </div>
+          </div>
+
+          <!-- Tier 5: 3 cards -->
+          <div class="sk-tier">
+            <div class="sk-card">
+              <img src="skills/icons/chatgpt.svg" alt="ChatGPT" loading="lazy">
+              <span>ChatGPT</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/claude.svg" alt="Claude" loading="lazy">
+              <span>Claude</span>
+            </div>
+            <div class="sk-card">
+              <img src="skills/icons/gemini.svg" alt="Gemini" loading="lazy">
+              <span>Gemini</span>
+            </div>
+          </div>
+
+          <!-- Tier 6: 1 card -->
+          <div class="sk-tier">
+            <div class="sk-card">
+              <img src="skills/icons/capcut.svg" alt="CapCut" class="icon-capcut" loading="lazy">
+              <span>CapCut</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER (Skills -> Projects) -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 3 — PROJECTS (5 FEATURED SLOTS WITH LIVE & GITHUB)
+         ============================================================ -->
+    <section id="projects" class="projects-section max-w-content mx-auto" aria-labelledby="projects-heading">
+      <div class="section-heading-wrap reveal">
+        <h2 id="projects-heading" class="section-title" data-i18n="projects.title">
+          Karya Unggulan
+        </h2>
+        <div class="section-title-line" aria-hidden="true"></div>
+        <p class="section-desc" data-i18n="projects.desc">
+          Koleksi proyek pengembangan web yang telah saya rancang dan kembangkan dengan fokus pada kualitas dan
+          performa.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 (Pesan Santap – UI/UX Design) -->
+        <article class="project-card reveal" aria-label="Project: Pesan Santap – UI/UX Design">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-brands fa-figma"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project1.jpg" alt="Pesan Santap – UI/UX Design" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project1.title">Pesan Santap – UI/UX Design</h3>
+            <p class="project-desc" data-i18n="project1.desc">
+              Perancangan desain UI/UX aplikasi pemesanan makanan menggunakan Figma.
+            </p>
+            <div class="project-links">
+              <a href="https://www.figma.com/design/yqqYOYoRExN2uuhNUjjFwu/PESAN-SANTAP2?node-id=0-1" target="_blank"
+                rel="noopener noreferrer" class="btn-project-github" aria-label="Lihat Desain di Figma"
+                title="Figma Design">
+                <i class="fa-brands fa-figma"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 (Nongki Kita – UI/UX Design) -->
+        <article class="project-card reveal" aria-label="Project: Nongki Kita – UI/UX Design"
+          style="transition-delay: 50ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project2.jpg" alt="Nongki Kita – UI/UX Design" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project2.title">Nongki Kita – UI/UX Design</h3>
+            <p class="project-desc" data-i18n="project2.desc">
+              Perancangan desain UI/UX aplikasi Nongki Kita untuk membantu pengguna menemukan tempat nongkrong. Proyek
+              dikerjakan secara berkelompok.
+            </p>
+            <div class="project-links">
+              <a href="https://www.figma.com/proto/twiu5ANP9XXOStOobIrtCD/Aplikasi-Nongki-Kita?node-id=2096-679"
+                target="_blank" rel="noopener noreferrer" class="btn-project-github"
+                aria-label="Lihat Prototype di Figma" title="Figma Prototype">
+                <i class="fa-brands fa-figma"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 (Matchalyy – Website) -->
+        <article class="project-card reveal" aria-label="Project: Matchalyy – Website" style="transition-delay: 100ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project3.jpg" alt="Matchalyy – Website" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project3.title">Matchalyy – Website</h3>
+            <p class="project-desc" data-i18n="project3.desc">
+              Pembuatan website Matchalyy.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Lailatulfitriyahh/matchalyy" target="_blank" rel="noopener noreferrer"
+                class="btn-project-github" aria-label="Lihat di GitHub" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 (Aplikasi Absensi – Android) -->
+        <article class="project-card reveal" aria-label="Project: Aplikasi Absensi – Android"
+          style="transition-delay: 150ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-brands fa-android"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project4.jpg" alt="Aplikasi Absensi – Android" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project4.title">Aplikasi Absensi – Android</h3>
+            <p class="project-desc" data-i18n="project4.desc">
+              Pengembangan aplikasi absensi berbasis Android menggunakan Android Studio.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Lailatulfitriyahh/android-absensi" target="_blank" rel="noopener noreferrer"
+                class="btn-project-github" aria-label="Lihat di GitHub" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 (GIMTRIF – Website Wisata) -->
+        <article class="project-card reveal" aria-label="Project: GIMTRIF – Website Wisata"
+          style="transition-delay: 200ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project5.jpg" alt="GIMTRIF – Website Wisata" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project5.title">GIMTRIF – Website Wisata</h3>
+            <p class="project-desc" data-i18n="project5.desc">
+              Pengembangan website Loka GIMTRIF untuk mencari dan menemukan informasi tempat wisata.
+            </p>
+            <div class="project-links">
+              <a href="https://loka.gimtrif.web.id" target="_blank" rel="noopener noreferrer" class="btn-project-github"
+                aria-label="Kunjungi Website Loka GIMTRIF" title="Kunjungi Website">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 (Prelove – Website) -->
+        <article class="project-card reveal" aria-label="Project: Prelove – Website" style="transition-delay: 250ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project6.jpg" alt="Prelove – Website" class="project-photo" loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project6.title">Prelove – Website</h3>
+            <p class="project-desc" data-i18n="project6.desc">
+              Pembuatan website pemesanan pakaian preloved.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Lailatulfitriyahh/website-prelove" target="_blank" rel="noopener noreferrer"
+                class="btn-project-github" aria-label="Lihat di GitHub" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7 (Website Desa Karangrejo) -->
+        <article class="project-card reveal" aria-label="Project: Website Desa Karangrejo"
+          style="transition-delay: 300ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project7.jpg" alt="Website Desa Karangrejo" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project7.title">Website Desa Karangrejo</h3>
+            <p class="project-desc" data-i18n="project7.desc">
+              Pengembangan website informasi Desa Karangrejo.
+            </p>
+            <div class="project-links">
+              <a href="https://karangrejogempol.web.id/" target="_blank" rel="noopener noreferrer"
+                class="btn-project-github" aria-label="Kunjungi Website Desa Karangrejo" title="Kunjungi Website">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 8 (AR Pengenalan Jajanan Tradisional) -->
+        <article class="project-card reveal" aria-label="Project: AR Pengenalan Jajanan Tradisional"
+          style="transition-delay: 350ms">
+          <div class="project-photo-wrapper">
+            <div class="project-mockup-fallback" aria-hidden="true">
+              <div class="mockup-header">
+                <span class="mockup-dot dot-1"></span>
+                <span class="mockup-dot dot-2"></span>
+                <span class="mockup-dot dot-3"></span>
+                <span class="mockup-bar"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-preview-badge">
+                  <i class="fa-solid fa-vr-cardboard"></i>
+                </div>
+                <div class="mockup-wireframe-lines">
+                  <div class="mockup-line line-lg"></div>
+                  <div class="mockup-line line-md"></div>
+                  <div class="mockup-line line-sm"></div>
+                </div>
+              </div>
+            </div>
+            <img src="assets/images/projects/project8.jpg" alt="AR Pengenalan Jajanan Tradisional" class="project-photo"
+              loading="lazy"
+              onerror="if(!this.dataset.triedPng){this.dataset.triedPng='1';this.src=this.src.replace('.jpg','.png');}else{this.style.display='none';}" />
+          </div>
+          <div class="project-body">
+            <h3 class="project-title" data-i18n="project8.title">AR Pengenalan Jajanan Tradisional</h3>
+            <p class="project-desc" data-i18n="project8.desc">
+              Pengembangan aplikasi Augmented Reality (AR) untuk mengenalkan berbagai jajanan tradisional Nusantara
+              melalui fitur pemindaian (scan).
+            </p>
+            <div class="project-links">
+              <span class="btn-project-disabled" aria-label="Link tidak tersedia" title="Link Tidak Tersedia">
+                <i class="fa-solid fa-link-slash"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER (Projects -> Education) -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 4 — EDUCATION (VERTICAL TIMELINE WITH NEON GLOW)
+         ============================================================ -->
+    <section id="education" class="education-section max-w-content mx-auto" aria-labelledby="education-heading">
+      <div class="section-heading-wrap reveal">
+        <h2 id="education-heading" class="section-title" data-i18n="education.title">
+          Riwayat Pendidikan
+        </h2>
+        <div class="section-title-line" aria-hidden="true"></div>
+        <p class="section-desc" data-i18n="education.desc">
+          Perjalanan akademis
+        </p>
+      </div>
+
+      <div class="edu-timeline reveal">
+
+        <!-- Timeline Item 1: SMK Negeri 1 Wonorejo -->
+        <div class="edu-timeline-item">
+          <div class="edu-timeline-node" aria-hidden="true"></div>
+          <div class="edu-card" data-institution-id="smk-wonorejo">
+            <div class="edu-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="edu-card__body">
+              <time class="edu-card__year" data-i18n="edu1.year">2020 — 2023</time>
+              <h3 class="edu-card__institution">SMK Negeri 1 Wonorejo</h3>
+              <p class="edu-card__major" data-i18n="edu1.major">Teknik Komputer dan Jaringan</p>
+              <div class="edu-card__meta">
+                <a href="https://maps.app.goo.gl/K6gKRCecxxpTQZNw9" target="_blank" rel="noopener noreferrer"
+                  class="edu-location-btn" aria-label="Lihat Lokasi SMK Negeri 1 Wonorejo di Google Maps"
+                  title="Lihat Lokasi di Google Maps">
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  <span data-i18n="edu.location_btn">Lihat Lokasi</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2: Universitas PGRI Wiranegara (Aktif) -->
+        <div class="edu-timeline-item">
+          <div class="edu-timeline-node" aria-hidden="true"></div>
+          <div class="edu-card edu-card--current" data-institution-id="univ-wiranegara">
+            <div class="edu-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="edu-card__body">
+              <time class="edu-card__year" data-i18n="edu2.year">2023 — Sekarang</time>
+              <h3 class="edu-card__institution">Universitas PGRI Wiranegara</h3>
+              <p class="edu-card__major" data-i18n="edu2.major">Ilmu Komputer</p>
+              <div class="edu-card__meta">
+                <a href="https://maps.app.goo.gl/sr8LA4oNo1kApx6PA" target="_blank" rel="noopener noreferrer"
+                  class="edu-location-btn" aria-label="Lihat Lokasi Universitas PGRI Wiranegara di Google Maps"
+                  title="Lihat Lokasi di Google Maps">
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  <span data-i18n="edu.location_btn">Lihat Lokasi</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================
+           CERTIFICATE GALLERY — Below Timeline
+           ============================================================ -->
+      <div class="cert-gallery-section reveal" id="certGallerySection">
+        <div class="cert-gallery-heading">
+          <h3 class="cert-gallery-title">
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
+            <span data-i18n="cert.gallery_title">Galeri Sertifikat</span>
+          </h3>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="cert-filter-tabs" role="group" aria-label="Filter Sertifikat">
+          <button type="button" class="cert-filter-btn is-active" data-filter="all"
+            data-i18n="cert.filter_all">Semua</button>
+          <button type="button" class="cert-filter-btn" data-filter="smk" data-i18n="cert.filter_smk">SMK</button>
+          <button type="button" class="cert-filter-btn" data-filter="univ"
+            data-i18n="cert.filter_univ">Universitas</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="cert-gallery-grid" id="certGalleryGrid" role="list">
+          <div class="cert-gallery-loading" id="certGalleryLoading">
+            <i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>
+            <span data-i18n="cert.loading">Memuat sertifikat...</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION DIVIDER (Education -> Contact) -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 5 — CONTACT (DIRECT CARDS: WHATSAPP, EMAIL, GITHUB)
+         ============================================================ -->
+    <section id="contact" class="contact-section max-w-content mx-auto" aria-labelledby="contact-heading">
+      <div class="section-heading-wrap reveal text-center">
+        <h2 id="contact-heading" class="section-title" data-i18n="contact.title">
+          Mari Berkolaborasi
+        </h2>
+        <div class="section-title-line mx-auto" aria-hidden="true"></div>
+        <p class="section-desc max-w-xl mx-auto" data-i18n="contact.desc">
+          Punya ide proyek menarik, tawaran kerjasama, atau ingin berdiskusi seputar web development? Silakan hubungi
+          saya melalui kontak berikut.
+        </p>
+      </div>
+
+      <div class="contact-layout reveal">
+
+        <!-- Direct Contact Cards Horizontal Row (WhatsApp, Email, GitHub) -->
+        <div class="contact-cards-row">
+
+          <!-- WhatsApp Card -->
+          <a href="https://wa.me/6285707879960" target="_blank" rel="noopener noreferrer" class="contact-card"
+            title="Chat WhatsApp: 085707879960">
+            <div class="contact-card__icon text-emerald-400">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </div>
+            <div class="contact-card__info">
+              <span class="contact-card__title" data-i18n="contact.wa_label">WhatsApp / Telepon</span>
+              <span class="contact-card__value">085707879960</span>
+            </div>
+          </a>
+
+          <!-- Email Card -->
+          <a href="mailto:lailatulfitriyahh026@gmail.com" class="contact-card"
+            title="Kirim Email ke lailatulfitriyahh026@gmail.com">
+            <div class="contact-card__icon text-indigo-400">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="contact-card__info">
+              <span class="contact-card__title" data-i18n="contact.email_label">Email</span>
+              <span class="contact-card__value">lailatulfitriyahh026@gmail.com</span>
+            </div>
+          </a>
+
+          <!-- GitHub Card -->
+          <a href="https://github.com/Lailatulfitriyahh" target="_blank" rel="noopener noreferrer" class="contact-card"
+            title="Kunjungi Profil GitHub">
+            <div class="contact-card__icon text-purple-400">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </div>
+            <div class="contact-card__info">
+              <span class="contact-card__title" data-i18n="contact.github_label">GitHub</span>
+              <span class="contact-card__value">Lailatulfitriyahh</span>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER (Contact -> Footer) -->
+    <div class="section-divider" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="max-w-content mx-auto px-6 text-center">
+      <p>
+        &copy; <span id="footer-year"></span>
+        <strong>Lailatul Fitriyah</strong>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       CERTIFICATE VIEWER MODAL (LIGHTBOX)
+       ================================================================ -->
+  <div id="certViewerModal" class="cert-modal-backdrop" role="dialog" aria-modal="true"
+    aria-labelledby="certViewerTitle" aria-hidden="true">
+    <div class="cert-modal cert-viewer-modal" role="document">
+      <div class="cert-modal__header">
+        <h3 id="certViewerTitle" class="cert-modal__title">
+          <i class="fa-solid fa-award" aria-hidden="true"></i>
+          <span id="certViewerTitleText">Pratinjau Sertifikat</span>
+        </h3>
+        <button type="button" class="cert-modal__close" data-close-modal="certViewerModal" aria-label="Tutup pratinjau">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="cert-modal__body flex-1 flex items-center justify-center">
+        <div id="certViewerContent" class="cert-viewer-content w-full">
+          <!-- Dynamic PDF iframe or Image preview rendered by certificates.js -->
+        </div>
+      </div>
+
+      <div class="cert-modal__footer justify-between">
+        <div id="certViewerMeta" class="text-xs text-text-muted">
+          <span id="certViewerYear"></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a id="certViewerDownloadBtn" href="#" download
+            class="cert-btn-cancel inline-flex items-center gap-1.5 hidden">
+            <i class="fa-solid fa-download"></i>
+            <span>Unduh</span>
+          </a>
+          <a id="certViewerOpenBtn" href="#" target="_blank" rel="noopener noreferrer"
+            class="cert-btn-cancel inline-flex items-center gap-1.5 hidden">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Buka PDF</span>
+          </a>
+          <button type="button" class="cert-btn-submit" data-close-modal="certViewerModal">
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+  <script src="src/js/main.js?v=16" defer></script>
+  <script src="src/js/navigation.js?v=3" defer></script>
+  <script src="src/js/animations.js" defer></script>
+  <script src="src/js/lang.js?v=17" defer></script>
+  <script src="src/js/certificates.js?v=10" defer></script>
+
+</body>
+
+</html>
