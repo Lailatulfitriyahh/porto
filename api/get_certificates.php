@@ -26,16 +26,9 @@ if (!in_array($institution, ['smk', 'univ'], true)) {
 $baseDir = dirname(__DIR__);
 $cleanBase = rtrim(str_replace('\\', '/', $baseDir), '/');
 
-// Daftar kemungkinan folder untuk mendukung variasi penamaan folder (certificates / sertifikat / certifikat)
+// Folder resmi sertifikat (tunggal & terstruktur rapi per institusi)
 $possibleFolders = [
     $cleanBase . '/assets/certificates/' . $institution,
-    $cleanBase . '/assets/sertifikat/' . $institution,
-    $cleanBase . '/assets/certifikat/' . $institution,
-    $cleanBase . '/assets/images/certificates/' . $institution,
-    $cleanBase . '/assets/images/sertifikat/' . $institution,
-    $cleanBase . '/assets/certificates',
-    $cleanBase . '/assets/sertifikat',
-    $cleanBase . '/assets/certifikat',
 ];
 
 // Ekstensi yang diizinkan (PDF & format Gambar)
