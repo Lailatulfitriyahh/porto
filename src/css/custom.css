@@ -3326,11 +3326,11 @@ section[id] {
   }
 
   .mobile-nav {
-    top: 76px;
-    left: 12px;
-    right: 12px;
-    padding: 14px 16px;
-    border-radius: 18px;
+    top: 72px;
+    left: 10px;
+    right: 10px;
+    padding: 12px 14px;
+    border-radius: 16px;
   }
 
   .skills-section {
@@ -3338,18 +3338,57 @@ section[id] {
   }
 
   .navbar-pill {
-    padding: 0 12px;
-    height: 56px;
+    padding: 0 10px;
+    height: 50px;
+    gap: 8px;
+  }
+
+  .nav-controls {
+    gap: 6px;
+  }
+
+  .lang-boxes {
+    padding: 2px;
+    gap: 1px;
+  }
+
+  .lang-box {
+    padding: 3px 7px;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+
+  .theme-btn,
+  .menu-btn {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .theme-icon-sun,
+  .theme-icon-moon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .menu-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav-brand {
+    gap: 7px;
   }
 
   .nav-brand-text {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
   }
 
   .nav-brand-code {
-    width: 28px;
-    height: 28px;
-    font-size: 0.8rem;
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+    border-radius: 8px;
   }
 
   .hero-section {
